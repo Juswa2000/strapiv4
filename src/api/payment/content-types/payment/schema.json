@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal"
+    },
+    "payment_type": {
+      "type": "enumeration",
+      "enum": [
+        "Tuition",
+        "Misc",
+        "Others"
+      ]
+    },
+    "method": {
+      "type": "enumeration",
+      "enum": [
+        "Cash",
+        "G cash",
+        "Card"
+      ]
+    },
+    "payment_date": {
+      "type": "date"
+    },
+    "remarks": {
+      "type": "text"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::student.student",
+      "inversedBy": "payments"
+    },
+    "payment_name": {
+      "type": "enumeration",
+      "enum": [
+        "Enrollment Fee",
+        "LT-Prelims",
+        "Prelims",
+        "LT-Midterms",
+        "Midterms",
+        "LT-Finals",
+        "Finals",
+        "Cisco Fee",
+        "Thesis Fee"
+      ]
+    }
+  }
+}

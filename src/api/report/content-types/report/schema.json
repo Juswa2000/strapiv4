@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "singularName": "report",
+    "pluralName": "reports",
+    "displayName": "Report"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "report_type": {
+      "type": "enumeration",
+      "enum": [
+        "payment_summary",
+        "student_financial_report"
+      ]
+    },
+    "summary": {
+      "type": "text"
+    },
+    "total_payments": {
+      "type": "biginteger"
+    },
+    "total_amount_paid": {
+      "type": "decimal"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::student.student",
+      "inversedBy": "reports"
+    }
+  }
+}
